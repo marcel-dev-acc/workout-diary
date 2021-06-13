@@ -2,41 +2,239 @@ body {
     margin: 0;
     padding: 0;
     z-index: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    z-index: 0;
+    background-color: rgb(255, 255, 255);
+}
+
+#adjust-screen-size {
+    display: none;
+    margin-left: 10px; 
+    margin-top: 10px;
 }
 
 #section-heading h1 {
     text-align: center;
+    position: fixed;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(22, 22, 22);
+    width: 100%;
+    margin: 0px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: rgb(216, 216, 216);
 }
 
-.inner-form-container {
-    margin-bottom: 0.4rem;
+.vertical-line-add-item {
+    position: fixed;
+    z-index: 30;
+    top: 10px;
+    right: 28px;
+    background-color: rgb(255, 255, 255);
+    height: 40px;
+    width: 5px;
+    border-radius: 2px;
+}
+
+.horizontal-line-add-item {
+    position: fixed;
+    z-index: 30;
+    top: 27px;
+    right: 10px;
+    background-color: rgb(255, 255, 255);
+    height: 5px;
+    width: 40px;
+    border-radius: 2px;
+}
+
+.add-item-button {
+    z-index: 20;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: rgba(0, 179, 0, 0.753);
+}
+
+#past-exercises {
+    margin-top: 4.6rem;
 }
 
 /* Mobile Devices */
 @media only screen and (max-width: 490px) {
+    /* For un-styled screen sizes */
+
+    #exercise-form-section {
+        position: fixed;
+        z-index: 10;
+        top: 20%;
+        left: 5%;
+        right: 5%;
+        background-color: rgb(255, 255, 255);
+        width: 90%;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #908e8e8e;
+    }
+
     .form-container {
-        width: 350px;
-        margin-left: auto;
-        margin-right: auto;
+        margin-top: 7.5%;
+        margin-bottom: 7.5%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .form-container h2 {
+        font-size: 25px;
+        text-align: center;
+        margin-top: 0px;
     }
 
     .exercise-set {
-        width: 300px;
-        margin-top: 2rem;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0.5rem;
-        border: solid 1px black;
-        border-radius: 10px;
+        margin-top: 0.75rem;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        padding-left: 10%;
+        padding-right: 10%;
+        background-color: rgba(24, 24, 24, 0.911);
+        color: rgba(224, 224, 224, 0.822);
     }
 
     .clear-data-button-container {
         margin-top: 1rem;
     }
+
+    .close-button-container {
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0);
+        height: 2rem;
+    }
+
+    .close-button-bar-1 {
+        width: 30px;
+        height: 0.2rem;
+        background-color: rgba(0, 0, 0, 0.85);
+        border-radius: 1px;
+        position: absolute;
+        z-index: 20;
+        right: 3%;
+        transform: rotate(45deg);
+    }
+
+    .close-button-bar-2 {
+        width: 30px;
+        height: 0.2rem;
+        background-color: rgba(0, 0, 0, 0.85);
+        border-radius: 1px;
+        position: absolute;
+        z-index: 20;
+        right: 3%;
+        transform: rotate(-45deg);
+    }
+
+    .close-button-box {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 255, 0, 0);
+        border-radius: 1px;
+        position: absolute;
+        z-index: 30;
+        right: 1%;
+        top: 1%;
+    }
+
+    .inner-form-container {
+        margin-bottom: 0.6rem;
+    }
+
+    .inner-form-container label {
+        display: inline-block;
+        width: 45%;
+    }
+
+    .inner-form-container input {
+        width: 45%;
+        background-color: rgb(114, 114, 126);
+        color: white;
+        font-weight: 900;
+        height: 1.2rem;
+        display: inline-block;
+        border: 2px solid grey;
+        padding-left: 1%;
+        padding-right: 1%;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        font-size: 12px;
+    }
+
+    .min-view-workout-exercise-list {
+        display: inline-block;
+        width: 45%;
+        background-color: rgb(114, 114, 126);
+        color: white;
+        border: 2px solid grey;
+        padding-left: 1%;
+        padding-right: 1%;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        font-size: 12px;
+        height: 1.2rem;
+        vertical-align: middle;
+    }
+
+    .min-view-workout-exercise-list-left-box {
+        display: inline-block; 
+        width: 90%; 
+    }
+
+    .min-view-workout-exercise-list-right-box {
+        display: inline-block; 
+        width: 6%;
+        transform: rotate(90deg);
+    }
+
+
+    .max-view-workout-exercise-list {
+        z-index: 40;
+        position: fixed;
+        background-color: rgb(0, 0, 0);
+        color: rgba(255, 255, 255, 0.9);
+        width: 80%;
+        top: 10%;
+        left: 10%;
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px #616161;
+    }
+
+    .max-view-workout-exercise-list p {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        background-color: rgb(136, 136, 136);
+    }
+
 }
 
 /* Tablet and desktop size */
 @media only screen and (min-width: 490px) {
+    #root-body {
+        display: none;
+    }
+
+    #adjust-screen-size {
+        display: block;
+        margin-left: 10px; 
+        margin-top: 10px;
+    }
+
     .form-container {
         width: 500px;
         margin-left: auto;
@@ -50,6 +248,7 @@ body {
     .clear-data-button-container {
         /* TODO    */
     }
+
 }
 
 

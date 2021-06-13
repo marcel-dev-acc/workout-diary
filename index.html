@@ -9,48 +9,82 @@
         <title>Workout Diary</title>
     </head>
     <body onload="setDefaults();">
-        <nav></nav>
-        <section id="section-heading">
-            <h1>Workout Diary</h1>
-        </section>
-        <section>
-            <div class="form-container">
-                <!-- Pseudo form - starts -->
-                <div class="inner-form-container">
-                    <label>Date</label>
-                    <input id="date" type="date"/>
+        <div id="too-big">
+            <!-- For un-styled screen widths -->
+            <p id="adjust-screen-size">Please re-size the display to be less then 490px and then reload the page.</p>
+        </div>
+        <div id="root-body">
+            <noscript>You need to enable JavaScript in order to use this website.</noscript>
+            <nav></nav>
+            <section id="section-heading">
+                <h1>Workout Diary</h1>
+                <div class="add-item-button" onclick="showAddSessionMenu();">
+                    <!-- This will be deprecated with the burger menu -->
+                    <div class="vertical-line-add-item"></div>
+                    <div class="horizontal-line-add-item"></div>
                 </div>
-                <div class="inner-form-container">
-                    <label>Time</label>
-                    <input id="time" type="time"/>
+            </section>
+            <section>
+                <div id="past-exercises"></div>
+            </section>
+            <section id="exercise-form-section" style="display: none;">
+                <div class="form-container">
+                    <!-- Pseudo form - starts -->
+                    <div class="close-button-container">
+                        <div class="close-button-bar-1"></div>
+                        <div class="close-button-bar-2"></div>
+                        <div class="close-button-box" onclick="closeAddSessionMenu();"></div>
+                    </div>
+                    <h2>Add a session</h2>
+                    <div style="width: 90%; margin-left: auto; margin-right: auto;">
+                        <div class="inner-form-container">
+                            <label>Date</label>
+                            <input id="date" type="date"/>
+                        </div>
+                        <div class="inner-form-container">
+                            <label>Time</label>
+                            <input id="time" type="time"/>
+                        </div>
+                        <div class="inner-form-container">
+                            <label>Exercise</label>
+                            <div id="workout-exercise-list" class="min-view-workout-exercise-list" onclick="showExerciseList();">
+                                <div id="active-exercise-list-value" class="min-view-workout-exercise-list-left-box">Push Ups</div>
+                                <div class="min-view-workout-exercise-list-right-box">
+                                    >
+                                </div>
+                            </div>
+                            <div id="workout-exercise-list-pop-up" class="max-view-workout-exercise-list" style="display: none;">
+                                <p onclick="setExerciseValue('Sit Ups');">Sit Ups</p>
+                                <p onclick="setExerciseValue('Lunges');">Lunges</p>
+                                <p onclick="setExerciseValue('Squats');">Squats</p>
+                                <p onclick="setExerciseValue('Close Grip Push Ups');">Close Grip Push Ups</p>
+                                <p onclick="setExerciseValue('Push Ups');">Push Ups</p>
+                                <p onclick="setExerciseValue('Reverse Crunches');">Reverse Crunches</p>
+                                <p onclick="setExerciseValue('Plank Rotations');">Plank Rotations</p>
+                                <p onclick="setExerciseValue('Bicycle Crunches');">Bicycle Crunches</p>
+                                <p onclick="setExerciseValue('Climbers');">Climbers</p>
+                            </div>
+                            <input id="workout-exercise-value" style="display: none;" type="text"/>
+                        </div>
+                        <div class="inner-form-container">
+                            <label>Repetitions</label>
+                            <input id="repetitions" type="number" value="1"/>
+                        </div>
+                    </div>
+                    <div class="inner-form-container">
+                        <button onclick="addItem();">Add entry</button>
+                    </div>
+                    <!-- Pseudo form - ends -->
                 </div>
-                <div class="inner-form-container">
-                    <label>Exercise</label>
-                    <select id="exercise">
-                        <option>Push Ups</option>
-                        <option>Sit Ups</option>
-                    </select>
+            </section>
+            <section>
+                <div class="">
+                    <div class="clear-data-button-container">
+                        <button onclick="clearLocalExerciseData();">Clear Local Data</button>
+                    </div>
                 </div>
-                <div class="inner-form-container">
-                    <label>Repetitions</label>
-                    <input id="repetitions" type="number"/>
-                </div>
-                <div class="inner-form-container">
-                    <button onclick="addItem();">Add entry</button>
-                </div>
-                <!-- Pseudo form - ends -->
-            </div>
-        </section>
-        <section>
-            <div id="past-exercises"></div>
-        </section>
-        <section>
-            <div class="form-container">
-                <div class="inner-form-container clear-data-button-container">
-                    <button onclick="clearLocalExerciseData();">Clear Local Data</button>
-                </div>
-            </div>
-        </section>
-        <footer></footer>
+            </section>
+            <footer></footer>
+        </div>
     </body>
 </html>
