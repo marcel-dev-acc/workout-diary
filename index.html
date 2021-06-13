@@ -63,6 +63,7 @@
                                 <p onclick="setExerciseValue('Plank Rotations');">Plank Rotations</p>
                                 <p onclick="setExerciseValue('Bicycle Crunches');">Bicycle Crunches</p>
                                 <p onclick="setExerciseValue('Climbers');">Climbers</p>
+                                <p onclick="setExerciseValue('Curls');">Curls</p>
                             </div>
                             <input id="workout-exercise-value" style="display: none;" type="text"/>
                         </div>
@@ -71,8 +72,8 @@
                             <input id="repetitions" type="number" value="1"/>
                         </div>
                     </div>
-                    <div class="inner-form-container">
-                        <button onclick="addItem();">Add entry</button>
+                    <div class="inner-form-container" style="margin-top: 2rem;">
+                        <button class="btn btn-green" onclick="addItem();">Add entry</button>
                     </div>
                     <!-- Pseudo form - ends -->
                 </div>
@@ -80,7 +81,7 @@
             <section>
                 <div class="">
                     <div class="clear-data-button-container">
-                        <button onclick="clearLocalExerciseData();">Clear Local Data</button>
+                        <button class="btn btn-green" onclick="clearLocalExerciseData();">Clear Local Data</button>
                     </div>
                 </div>
             </section>

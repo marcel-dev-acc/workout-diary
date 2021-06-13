@@ -68,6 +68,20 @@ body {
     margin-top: 4.6rem;
 }
 
+.btn {
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+.btn-green {
+    background-color: #4CAF50;
+    color: rgb(255, 255, 255);
+}
+
 /* Mobile Devices */
 @media only screen and (max-width: 490px) {
     /* For un-styled screen sizes */

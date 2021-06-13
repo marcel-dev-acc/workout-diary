@@ -28,6 +28,8 @@ function addItem() {
     storeDataLocally(payload);
     // Add record
     setItems();
+    // Hide add session menu
+    closeAddSessionMenu()
 }
 
 function setItems() {
