@@ -36,44 +36,120 @@
                         <div class="close-button-box" onclick="closeAddSessionMenu();"></div>
                     </div>
                     <h2>Add a session</h2>
-                    <div style="width: 90%; margin-left: auto; margin-right: auto;">
-                        <div class="inner-form-container">
-                            <label>Date</label>
-                            <input id="date" type="date"/>
-                        </div>
-                        <div class="inner-form-container">
-                            <label>Time</label>
-                            <input id="time" type="time"/>
-                        </div>
-                        <div class="inner-form-container">
-                            <label>Exercise</label>
-                            <div id="workout-exercise-list" class="min-view-workout-exercise-list" onclick="showExerciseList();">
-                                <div id="active-exercise-list-value" class="min-view-workout-exercise-list-left-box">Push Ups</div>
-                                <div class="min-view-workout-exercise-list-right-box">
-                                    >
+                    <div style="text-align: center;">
+                        <img id="session-nav-icon-strength" onclick="showSessionForm('strength')" class="nav-icons-workouts nav-icons-workouts-active" src="./assets/images/icon-strength-straining.png"/>
+                        <img id="session-nav-icon-endurance" onclick="showSessionForm('endurance')" class="nav-icons-workouts" src="./assets/images/icon-endurance-training.png"/>
+                        <img id="session-nav-icon-meditation" onclick="showSessionForm('meditation')" class="nav-icons-workouts" src="./assets/images/icon-meditation-training.png"/>
+                    </div>
+                    <input id="session-type" type="text" style="display: none;"/>
+                    <!-- Strength training -->
+                    <div id="session-type-strength-form" style="display: block;">
+                        <h3>Strength training</h3>
+                        <div style="width: 90%; margin-left: auto; margin-right: auto;">
+                            <div class="inner-form-container">
+                                <label>Date</label>
+                                <input id="strength-date" type="date"/>
+                            </div>
+                            <div class="inner-form-container">
+                                <label>Time</label>
+                                <input id="strength-time" type="time"/>
+                            </div>
+                            <div class="inner-form-container">
+                                <label>Exercise</label>
+                                <div id="workout-exercise-list" class="min-view-workout-exercise-list" onclick="showExerciseList();">
+                                    <div id="active-exercise-list-value" class="min-view-workout-exercise-list-left-box">Push Ups</div>
+                                    <div class="min-view-workout-exercise-list-right-box">
+                                        >
+                                    </div>
                                 </div>
+                                <div id="workout-exercise-list-pop-up" class="max-view-workout-exercise-list" style="display: none;">
+                                    <p onclick="setExerciseValue('Sit Ups');">Sit Ups</p>
+                                    <p onclick="setExerciseValue('Lunges');">Lunges</p>
+                                    <p onclick="setExerciseValue('Squats');">Squats</p>
+                                    <p onclick="setExerciseValue('Close Grip Push Ups');">Close Grip Push Ups</p>
+                                    <p onclick="setExerciseValue('Push Ups');">Push Ups</p>
+                                    <p onclick="setExerciseValue('Reverse Crunches');">Reverse Crunches</p>
+                                    <p onclick="setExerciseValue('Plank Rotations');">Plank Rotations</p>
+                                    <p onclick="setExerciseValue('Bicycle Crunches');">Bicycle Crunches</p>
+                                    <p onclick="setExerciseValue('Climbers');">Climbers</p>
+                                    <p onclick="setExerciseValue('Curls');">Curls</p>
+                                </div>
+                                <input id="strength-workout-exercise-value" style="display: none;" type="text" value="Push Ups"/>
                             </div>
-                            <div id="workout-exercise-list-pop-up" class="max-view-workout-exercise-list" style="display: none;">
-                                <p onclick="setExerciseValue('Sit Ups');">Sit Ups</p>
-                                <p onclick="setExerciseValue('Lunges');">Lunges</p>
-                                <p onclick="setExerciseValue('Squats');">Squats</p>
-                                <p onclick="setExerciseValue('Close Grip Push Ups');">Close Grip Push Ups</p>
-                                <p onclick="setExerciseValue('Push Ups');">Push Ups</p>
-                                <p onclick="setExerciseValue('Reverse Crunches');">Reverse Crunches</p>
-                                <p onclick="setExerciseValue('Plank Rotations');">Plank Rotations</p>
-                                <p onclick="setExerciseValue('Bicycle Crunches');">Bicycle Crunches</p>
-                                <p onclick="setExerciseValue('Climbers');">Climbers</p>
-                                <p onclick="setExerciseValue('Curls');">Curls</p>
+                            <div class="inner-form-container">
+                                <label>Repetitions</label>
+                                <input id="strength-repetitions" type="number" value="1"/>
                             </div>
-                            <input id="workout-exercise-value" style="display: none;" type="text"/>
                         </div>
-                        <div class="inner-form-container">
-                            <label>Repetitions</label>
-                            <input id="repetitions" type="number" value="1"/>
+                        <div class="inner-form-container" style="margin-top: 2rem;">
+                            <button class="btn btn-green" onclick="addItem('strength');">Add entry</button>
                         </div>
                     </div>
-                    <div class="inner-form-container" style="margin-top: 2rem;">
-                        <button class="btn btn-green" onclick="addItem();">Add entry</button>
+                    <!-- Endurance training -->
+                    <div id="session-type-endurance-form" style="display: none;">
+                        <h3>Endurance training</h3>
+                        <div style="width: 90%; margin-left: auto; margin-right: auto;">
+                            <div class="inner-form-container">
+                                <label>Date</label>
+                                <input id="endurance-date" type="date"/>
+                            </div>
+                            <div class="inner-form-container">
+                                <label>Time</label>
+                                <input id="endurance-time" type="time"/>
+                            </div>
+                            <div class="inner-form-container">
+                                <label>Exercise</label>
+                                <input type="text" value="Long Distance" disabled
+                                    style="background-color: #424242e7;"
+                                />
+                                <input id="endurance-workout-exercise-value" type="text" value="Long Distance Running"
+                                    style="display: none;"
+                                />
+                            </div>
+                            <div class="inner-form-container">
+                                <label>Duration</label>
+                                <input id="endurance-duration" type="number" value="1"/>
+                            </div>
+                            <div>
+                                <sub>* Duration is measured in minutes</sub>
+                            </div>
+                        </div>
+                        <div class="inner-form-container" style="margin-top: 2rem;">
+                            <button class="btn btn-green" onclick="addItem('endurance');">Add entry</button>
+                        </div>
+                    </div>
+                    <!-- Meditation training -->
+                    <div id="session-type-meditation-form" style="display: none;">
+                        <h3>Meditation training</h3>
+                        <div style="width: 90%; margin-left: auto; margin-right: auto;">
+                            <div class="inner-form-container">
+                                <label>Date</label>
+                                <input id="meditation-date" type="date"/>
+                            </div>
+                            <div class="inner-form-container">
+                                <label>Time</label>
+                                <input id="meditation-time" type="time"/>
+                            </div>
+                            <div class="inner-form-container">
+                                <label>Exercise</label>
+                                <input type="text" value="Mindfulness" disabled
+                                    style="background-color: #424242e7;"
+                                />
+                                <input id="meditation-workout-exercise-value" type="text" value="Mindfulness Meditation"
+                                    style="display: none;"
+                                />
+                            </div>
+                            <div class="inner-form-container">
+                                <label>Duration</label>
+                                <input id="meditation-duration" type="number" value="1"/>
+                            </div>
+                            <div>
+                                <sub>* Duration is measured in minutes</sub>
+                            </div>
+                        </div>
+                        <div class="inner-form-container" style="margin-top: 2rem;">
+                            <button class="btn btn-green" onclick="addItem('meditation');">Add entry</button>
+                        </div>
                     </div>
                     <!-- Pseudo form - ends -->
                 </div>

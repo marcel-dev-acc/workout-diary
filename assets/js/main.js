@@ -1,6 +1,8 @@
 /* code here */
 
 function setDefaults() {
+    // Set default session type
+    document.getElementById('session-type').value = 'strength';
     // Set default date
 
     // Set default time
@@ -9,20 +11,31 @@ function setDefaults() {
     setItems();
 }
 
-function addItem() {
+function addItem(form) {
     // Get form data
-    let date = document.getElementById('date').value;
-    let time = document.getElementById('time').value;
-    let exercise = document.getElementById('workout-exercise-value').value;
-    let repetitions = document.getElementById('repetitions').value;
+    let sessionType = document.getElementById('session-type').value;
+    let date = document.getElementById(form + '-date').value;
+    let time = document.getElementById(form + '-time').value;
+    let exercise = document.getElementById(form + '-workout-exercise-value').value;
+    let repetitions;
+    let duration;
+    if (form === 'strength') {
+        repetitions = document.getElementById(form + '-repetitions').value;
+        duration = 0;
+    } else {
+        repetitions = 0;
+        duration = document.getElementById(form + '-duration').value;
+    }
     // Validate form data
 
     // Make payload
     let payload = {
+        'session-type': sessionType,
         'date': date,
         'time': time,
         'exercise': exercise,
         'repetitions': repetitions,
+        'duration': duration,
     };
     // Store data locally
     storeDataLocally(payload);
@@ -40,10 +53,16 @@ function setItems() {
     pastExercisesEl.innerHTML = '';
     for (let itemNumber in currentExerciseData.reverse()) {
         let payload = currentExerciseData[itemNumber];
+        let exerciseType = '';
+        if (payload['session-type'] === 'strength') {
+            exerciseType = '<p>Repetitions: ' + payload.repetitions.toString() + '</p>';
+        } else {
+            exerciseType = '<p>Duration: ' + payload.duration.toString() + '</p>';
+        }
         pastExercisesEl.innerHTML += `<div class="exercise-set">
             <p>Date time: ` + payload.date.toString() + ' ' + payload.time.toString() + `</p>
             <p>Exercise: ` + payload.exercise.toString() + `</p>
-            <p>Repetitions: ` + payload.repetitions.toString() + `</p>
+            ` + exerciseType + `
         </div>`;
     }
 }
@@ -68,7 +87,7 @@ function storeDataLocally(payload) {
 }
 
 function setExerciseValue(exercise) {
-    document.getElementById('workout-exercise-value').value = exercise;
+    document.getElementById('strength-workout-exercise-value').value = exercise;
     let activeExerciseListValue = exercise
     if (exercise.length > 12) {
         activeExerciseListValue = exercise.substring(0, 9) + '...'
@@ -87,11 +106,21 @@ function clearLocalExerciseData() {
 }
 
 function showAddSessionMenu() {
-    console.log('show session menu clicked');
+    // console.log('show session menu clicked');
     document.getElementById('exercise-form-section').style.display = 'block';
 }
 
 function closeAddSessionMenu() {
-    console.log('close session menu clicked');
     document.getElementById('exercise-form-section').style.display = 'none';
+}
+
+function showSessionForm(form) {
+    let previousForm = document.getElementById('session-type').value;
+    document.getElementById('session-type').value = form;
+    // Change nav icon highlight
+    document.getElementById('session-nav-icon-' + previousForm).className = "nav-icons-workouts";
+    document.getElementById('session-nav-icon-' + form).className = "nav-icons-workouts nav-icons-workouts-active";
+    // Change displayed form
+    document.getElementById('session-type-' + previousForm + '-form').style.display = "none";
+    document.getElementById('session-type-' + form + '-form').style.display = "block";
 }
