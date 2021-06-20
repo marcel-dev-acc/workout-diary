@@ -9,6 +9,28 @@ function setDefaults() {
 
     // Load local data
     setItems();
+    // Add event listener to upload button
+    let jsonInput = document.getElementById('uploadJsonLink');
+    jsonInput.addEventListener('change', (event) => {
+        let file = event.target.files[0];
+
+        let reader = new FileReader();
+        reader.addEventListener('load', (event) => {
+            let output = event.target.result;
+            console.log(output);
+            output = decodeURIComponent(output);
+            console.log(output);
+            output = JSON.parse(output);
+            output = JSON.parse(output);
+            console.log(output);
+            localStorage.setItem(
+                'exercise-data',
+                JSON.stringify(output)
+            );
+            setItems();
+        });
+        reader.readAsText(file);
+    });
 }
 
 function addItem(form) {
@@ -48,11 +70,13 @@ function addItem(form) {
 function setItems() {
     let currentExerciseData = localStorage.getItem('exercise-data');
     currentExerciseData = JSON.parse(currentExerciseData);
+    console.log(currentExerciseData);
     if (currentExerciseData == null) {return false;}
     let pastExercisesEl = document.getElementById('past-exercises');
     pastExercisesEl.innerHTML = '';
     for (let itemNumber in currentExerciseData.reverse()) {
         let payload = currentExerciseData[itemNumber];
+        console.log(payload);
         let exerciseType = '';
         if (payload['session-type'] === 'strength') {
             exerciseType = '<p>Repetitions: ' + payload.repetitions.toString() + '</p>';
@@ -103,6 +127,15 @@ function showExerciseList() {
 function clearLocalExerciseData() {
     localStorage.removeItem('exercise-data');
     document.getElementById('past-exercises').innerHTML = '';
+    closeClearDataBox();
+}
+
+function showClearDataBox() {
+    document.getElementById('confirm-clear-box').style.display = 'block';
+}
+
+function closeClearDataBox() {
+    document.getElementById('confirm-clear-box').style.display = 'none';
 }
 
 function showAddSessionMenu() {
@@ -123,4 +156,19 @@ function showSessionForm(form) {
     // Change displayed form
     document.getElementById('session-type-' + previousForm + '-form').style.display = "none";
     document.getElementById('session-type-' + form + '-form').style.display = "block";
+}
+
+function saveJson() {
+    let currentExerciseData = localStorage.getItem('exercise-data');
+    console.log(currentExerciseData);
+    let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(currentExerciseData));
+    let anchorDownload = document.getElementById('downloadJsonLink');
+    anchorDownload.href = dataStr;
+    anchorDownload.download = "workouts.json";
+    anchorDownload.click();
+}
+
+function uploadJson() {
+    let jsonInput = document.getElementById('uploadJsonLink');
+    jsonInput.click();
 }

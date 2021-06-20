@@ -156,8 +156,21 @@
             </section>
             <section>
                 <div class="">
-                    <div class="clear-data-button-container">
-                        <button class="btn btn-green" onclick="clearLocalExerciseData();">Clear Local Data</button>
+                    <div class="generic-button-container">
+                        <button class="btn btn-green" onclick="showClearDataBox();">Clear Local Data</button>
+                    </div>
+                    <div id="confirm-clear-box" style="display: none;">
+                        <h2>Are you sure?</h2>
+                        <button class="btn btn-green" onclick="clearLocalExerciseData();">Yes</button>
+                        <button class="btn btn-red" onclick="closeClearDataBox();">No</button>
+                    </div>
+                    <div class="generic-button-container">
+                        <button class="btn btn-green" onclick="saveJson();">Download Local Data</button>
+                        <a id="downloadJsonLink" style="display: none;">data</a>
+                    </div>
+                    <div class="generic-button-container">
+                        <button class="btn btn-green" onclick="uploadJson();">Upload Local Data</button>
+                        <input id="uploadJsonLink" type="file" style="display: none;" />
                     </div>
                 </div>
             </section>

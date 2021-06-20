@@ -88,6 +88,11 @@ sub {
     color: rgb(255, 255, 255);
 }
 
+.btn-red {
+    background-color: #ce3232;
+    color: rgb(255, 255, 255);
+}
+
 /* Mobile Devices */
 @media only screen and (max-width: 490px) {
     /* For un-styled screen sizes */
@@ -132,7 +137,7 @@ sub {
         color: rgba(224, 224, 224, 0.822);
     }
 
-    .clear-data-button-container {
+    .generic-button-container {
         margin-top: 1rem;
     }
 
@@ -268,6 +273,19 @@ sub {
 
     .nav-icons-workouts-active {
         background-color: #4CAF50;
+    }
+
+    #confirm-clear-box {
+        background-color: white;
+        border-radius: 5px;
+        text-align: center;
+        z-index: 5;
+        position: fixed;
+        top: 15%;
+        left: 10%;
+        width: 80%;
+        padding-bottom: 15px;
+        box-shadow: 0px 0px 20px #616161;
     }
 
 }
