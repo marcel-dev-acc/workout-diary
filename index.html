@@ -15,13 +15,43 @@
         </div>
         <div id="root-body">
             <noscript>You need to enable JavaScript in order to use this website.</noscript>
-            <nav></nav>
             <section id="section-heading">
                 <h1>Workout Diary</h1>
-                <div class="add-item-button" onclick="showAddSessionMenu();">
-                    <!-- This will be deprecated with the burger menu -->
+                <!-- <div class="add-item-button" onclick="showAddSessionMenu();">
                     <div class="vertical-line-add-item"></div>
                     <div class="horizontal-line-add-item"></div>
+                </div> -->
+                <div class="burger-menu" onclick="showSidePanel();">
+                    <div class="burger-bar-1"></div>
+                    <div class="burger-bar-2"></div>
+                    <div class="burger-bar-3"></div>
+                </div>
+                <nav id="sidePanel" style="display: none;">
+                    <div class="close-button-container">
+                        <div style="top: 20px;" class="close-button-bar-1"></div>
+                        <div style="top: 20px;" class="close-button-bar-2"></div>
+                        <div style="top: 0px;" class="close-button-box" onclick="closeSidePanel();"></div>
+                    </div>
+                    <div class="generic-button-container">
+                        <button style="width: 100%;" class="btn btn-green" onclick="showAddSessionMenu();">Add Workout</button>
+                    </div>
+                    <div class="generic-button-container">
+                        <button style="width: 100%;" class="btn btn-green" onclick="showClearDataBox();">Clear Local Data</button>
+                    </div>
+                    <div class="generic-button-container">
+                        <button style="width: 100%;" class="btn btn-green" onclick="saveJson();">Download Local Data</button>
+                        <a id="downloadJsonLink" style="display: none;">data</a>
+                    </div>
+                    <div class="generic-button-container">
+                        <button style="width: 100%;" class="btn btn-green" onclick="uploadJson();">Upload Local Data</button>
+                        <input id="uploadJsonLink" type="file" style="display: none;" />
+                    </div>
+                </nav>
+                <div id="confirm-clear-box" style="display: none;">
+                    <h2>Clear Data</h2>
+                    <h2>Are you sure?</h2>
+                    <button class="btn btn-green" onclick="clearLocalExerciseData();">Yes</button>
+                    <button class="btn btn-red" onclick="closeClearDataBox();">No</button>
                 </div>
             </section>
             <section>
@@ -155,7 +185,7 @@
                 </div>
             </section>
             <section>
-                <div class="">
+                <!-- <div class="">
                     <div class="generic-button-container">
                         <button class="btn btn-green" onclick="showClearDataBox();">Clear Local Data</button>
                     </div>
@@ -172,7 +202,7 @@
                         <button class="btn btn-green" onclick="uploadJson();">Upload Local Data</button>
                         <input id="uploadJsonLink" type="file" style="display: none;" />
                     </div>
-                </div>
+                </div> -->
             </section>
             <footer></footer>
         </div>

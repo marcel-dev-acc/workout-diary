@@ -59,6 +59,48 @@ sub {
     border-radius: 2px;
 }
 
+.burger-menu {
+    position: fixed;
+    z-index: 20;
+    top: 10px;
+    left: 5px;
+    height: 40px;
+    width: 50px;
+}
+
+.burger-bar-1 {
+    position: fixed;
+    z-index: 15;
+    top: 15px;
+    left: 10px;
+    background-color: rgb(255, 255, 255);
+    height: 5px;
+    width: 40px;
+    border-radius: 2px;
+}
+
+.burger-bar-2 {
+    position: fixed;
+    z-index: 15;
+    top: 27px;
+    left: 10px;
+    background-color: rgb(255, 255, 255);
+    height: 5px;
+    width: 40px;
+    border-radius: 2px;
+}
+
+.burger-bar-3 {
+    position: fixed;
+    z-index: 15;
+    top: 39px;
+    left: 10px;
+    background-color: rgb(255, 255, 255);
+    height: 5px;
+    width: 40px;
+    border-radius: 2px;
+}
+
 .add-item-button {
     z-index: 20;
     position: fixed;
@@ -96,6 +138,15 @@ sub {
 /* Mobile Devices */
 @media only screen and (max-width: 490px) {
     /* For un-styled screen sizes */
+    #sidePanel {
+        z-index: 30;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 80%;
+        height: 100%;
+        background-color: rgba(200, 200, 200, 0.95);
+    }
 
     #exercise-form-section {
         position: fixed;
