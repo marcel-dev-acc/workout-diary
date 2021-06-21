@@ -2,11 +2,11 @@
 
 // Navigation buttons
 function goToHomePage() {
-    window.location.assign('/');
+    window.location.assign('/workout-diary/');
 }
 
 function goToProgressPage() {
-    window.location.assign('/progress.html');
+    window.location.assign('/workout-diary/progress.html');
 }
 
 function setDefaults() {
