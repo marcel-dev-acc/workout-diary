@@ -303,6 +303,10 @@ sub {
         padding-bottom: 0.5rem;
         padding-left: 2rem;
         padding-right: 2rem;
+
+        background-color: rgb(251, 101, 101);
+        background-color: rgb(101, 251, 101);
+        background-color: rgb(101, 101, 251);
         background-color: rgb(136, 136, 136);
     }
 
