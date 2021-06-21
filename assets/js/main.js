@@ -1,5 +1,14 @@
 /* code here */
 
+// Navigation buttons
+function goToHomePage() {
+    window.location.assign('/');
+}
+
+function goToProgressPage() {
+    window.location.assign('/progress.html');
+}
+
 function setDefaults() {
     // Backward compatibility function
     // backwardCompatibility();
@@ -14,22 +23,26 @@ function setDefaults() {
     // Add event listener to upload button
     let jsonInput = document.getElementById('uploadJsonLink');
     jsonInput.addEventListener('change', (event) => {
-        let file = event.target.files[0];
+        try {
+            let file = event.target.files[0];
 
-        let reader = new FileReader();
-        reader.addEventListener('load', (event) => {
-            let output = event.target.result;
-            output = decodeURIComponent(output);
-            output = JSON.parse(output);
-            output = JSON.parse(output);
-            // console.log(output);
-            localStorage.setItem(
-                'exercise-data',
-                JSON.stringify(output)
-            );
-            setItems();
-        });
-        reader.readAsText(file);
+            let reader = new FileReader();
+            reader.addEventListener('load', (event) => {
+                let output = event.target.result;
+                output = decodeURIComponent(output);
+                output = JSON.parse(output);
+                output = JSON.parse(output);
+                // console.log(output);
+                localStorage.setItem(
+                    'exercise-data',
+                    JSON.stringify(output)
+                );
+                setItems();
+            });
+            reader.readAsText(file);
+        } catch (error) {
+            alert(error);
+        }
     });
 }
 

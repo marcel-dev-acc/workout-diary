@@ -339,6 +339,11 @@ sub {
         box-shadow: 0px 0px 20px #616161;
     }
 
+    .chartSpace {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
 }
 
 /* Tablet and desktop size */
