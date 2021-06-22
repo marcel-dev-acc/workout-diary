@@ -42,22 +42,39 @@
                         <img id="session-nav-icon-strength" onclick="chooseChart('strength')" class="nav-icons-workouts nav-icons-workouts-active" src="./assets/images/icon-strength-straining.png"/>
                         <img id="session-nav-icon-endurance" onclick="chooseChart('endurance')" class="nav-icons-workouts" src="./assets/images/icon-endurance-training.png"/>
                         <img id="session-nav-icon-meditation" onclick="chooseChart('meditation')" class="nav-icons-workouts" src="./assets/images/icon-meditation-training.png"/>
+                        <input id="current-display" type="text" value="strength" style="display: none;" />
                     </div>
+                </div>
+                <div class="form-container" style="text-align: center;">
+                    <div style="display: inline-block; width: 150px;">
+                        <p style="margin-bottom: 0px;">From Date</p>
+                        <input id="from-date" type="date" />
+                    </div>
+                    <div style="display: inline-block; width: 150px;">
+                        <p style="margin-bottom: 0px;">To Date</p>
+                        <input id="to-date" type="date" />
+                    </div>
+                </div>
+                <div id="invalid-input-from-to-date" class="generic-button-container" style="text-align: right; margin-bottom: 15px; display: none;">
+                    <button class="btn btn-red" style="width: 100%;">Please fill in a from and to date</button>
+                </div>
+                <div class="generic-button-container" style="text-align: right; margin-bottom: 15px;">
+                    <button class="btn btn-green" onclick="refreshCharts();">Refresh</button>
                 </div>
             </section>
             <section>
                 <!-- Chart area here -->
-                <div class="chartSpace">
-                    <div class="strengthChart">
-                        <canvas id="myStrengthChart"></canvas>
+                <div class="chart-space">
+                    <div id="strength-chart" style="display: block;">
+                        <canvas id="myStrengthChart" height="350"></canvas>
                     </div>
 
-                    <div class="enduranceChart">
-                        <canvas id="myEnduranceChart"></canvas>
+                    <div id="endurance-chart" style="display: none;">
+                        <canvas id="myEnduranceChart" height="350"></canvas>
                     </div>
 
-                    <div class="meditationChart">
-                        <canvas id="myMeditationChart"></canvas>
+                    <div id="meditation-chart" style="display: none;">
+                        <canvas id="myMeditationChart" height="350"></canvas>
                     </div>
                     
                 </div>
@@ -66,8 +83,10 @@
             <footer></footer>
         </div>
         <script>
+            setDefaultDate();
             loadStrengthChartBasic();
-        
+            loadEnduranceChartBasic();
+            loadMeditationChartBasic();
         </script>
     </body>
 </html>
